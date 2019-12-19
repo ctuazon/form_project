@@ -1,0 +1,292 @@
+<html>
+<head>
+	
+	
+	<meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	
+	<style>
+		.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #777;
+  border-color: #777 transparent #777 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+	</style>
+</head>
+
+
+<body>
+
+<div class ="modal fade" id="servicemodal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Users</h5>
+				<button type="button" class="close" data-dismiss="modal" data-target="#servicemodal">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body" id="modal-output">
+				<div style="text-align:center;">
+					<div class="lds-dual-ring"></div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal" data-target="#servicemodal" >Click Me</button>
+			</div>
+		</div>
+	</div>
+</div> 
+	
+<main>
+	<div id ="intro">
+		<div>
+			<h1 id="title">Take Our Survey</h1>
+			<p id="description">We value your opinion. If you have some time, please go ahead and fill up this form.</p>
+		</div>
+		<div>
+			<button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#servicemodal"  id="loadTable">Click Me</button>
+		</div>
+	</div>
+	<form id="survey-form">
+		<section>
+			<h2>1. About You</h2>
+			<div id ="content">
+					
+				<div id="left_side">
+					<label for="name" id="name-label">Name</label>
+				</div>
+				<div id="right_side">
+					<input type="text" id="name" placeholder="Your Name" required>
+				</div>
+				<div id="left_side">
+					<label for="email" id="email-label">Email</label>
+				</div>
+				<div id="right_side">
+					<input type="email" id="email" placeholder="Your Email" required>
+				</div>
+			</div>
+				
+		</section>
+			
+		<section>
+			<h2>2. About Your Credit Cards</h2>
+			<div id ="content">
+					
+				<div id="left_side">
+					<label for="number" id="number-label" >How Many Credit Cards Do You Own?</label>
+				</div>
+				<div id="right_side">
+					<input type="number" id="number" min="1" max="30" placeholder="1" >
+				</div>
+				<div id="left_side">
+					<label for="CardType" id="CardType-label">What Type of Card Do You Use?</label>
+				</div>
+				<div id="right_side">
+					<div id ="item">
+						<input name="typeCard" id="typecards" type="checkbox" value="Visa"> Visa 
+					</div>
+					<div id ="item">
+						<input name="typeCard" id="typecards" type="checkbox" value="MC"> Master Card
+					</div>
+					<div id ="item">
+						<input name="typeCard" id="typecards" type="checkbox" value="Other"> Other
+					</div>
+				</div>
+					
+				<div id="left_side">
+					<label for="CardType" id="Reward-label">Do Reward Points Matter?</label>
+				</div>
+				<div id="right_side">
+					<div id ="item">
+						<select id="rewardgoods" name="rewardgoods" class="rewardgoods">
+							<option selected value="na">Select an option</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+					
+				<div id="left_side">
+					<label for="CardType" id="UseOnline-label">How Often Do You Use Your Card Online?</label>
+				</div>
+				<div id="right_side">
+					<div id ="item">
+						<input id="oftencards" name="oftencards" value="1"  type="radio" class="choices"> 0-3 Times
+					</div>
+					<div id ="item">
+						<input id="oftencards" name="oftencards" value="2"  type="radio" class="choices" > 4-8 Times
+					</div>
+					<div id ="item">
+						<input id="oftencards" name="oftencards" value="3"  type="radio" class="choices" > 9+ Times
+					</div>
+				</div>
+			</div>
+				
+		</section>
+			
+		<section>
+			<h2>3. Additional Comments</h2>
+			<div id ="content">
+					
+				<div id="left_side">
+					<label for="name" id="name-label">If you have any additional comments about our products, please let us know below:</label>
+				</div>
+				<div id="right_side">
+					<textarea id="comments"></textarea>
+				</div>
+					
+			</div>
+				
+		</section>
+			
+		<section id="submit_button">
+				
+			<input type="submit" name="Submit" id="submit" value="Submit">
+					
+		</section>
+	</form>
+	</main>
+	
+	<footer>
+	Copyright 2019
+	</footer>
+	<div is="loading">LOA DING</div>
+	<script src="js/jquery-3.4.1.js"></script>
+	<script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function() 
+{
+
+	/*
+	// Make modal window movable
+	$(".modal").modal("show");
+
+	$(".modal-header").on("mousedown", function(mousedownEvt) {
+		var $draggable = $(this);
+		var x = mousedownEvt.pageX - $draggable.offset().left,
+			y = mousedownEvt.pageY - $draggable.offset().top;
+		$("body").on("mousemove.draggable", function(mousemoveEvt) {
+			$draggable.closest(".modal-dialog").offset({
+				"left": mousemoveEvt.pageX - x,
+				"top": mousemoveEvt.pageY - y
+			});
+		});
+		$("body").one("mouseup", function() {
+			$("body").off("mousemove.draggable");
+		});
+		$draggable.closest(".modal").one("bs.modal.hide", function() {
+			$("body").off("mousemove.draggable");
+		});
+	});
+	*/
+	
+	$('#survey-form').on('submit', function(e) 
+	{
+		var name = $("#name").val();
+		var email = $("#email").val();
+		var numcards = $("#number").val();
+		
+		//var typecards = $("#typecards").val();
+		var type_cards = [];
+			$.each($("input[name='typeCard']:checked"), function() {
+				type_cards.push($(this).val());
+		});
+		
+		var typecards = type_cards.join(", ");
+		console.log(typecards);
+		var rewardsgoods = $("#rewardgoods").val();
+		var oftencards = $("#oftencards").val();
+		var comments = $("#comments").val();
+		
+        e.preventDefault();
+		$.post( "processform.php", 
+		{ 
+			name1: name,
+			email1: email,
+			numcards1: numcards,
+			typecards1: typecards,
+			rewardsgoods1: rewardsgoods,
+			oftencards1: oftencards,
+			comments1: comments
+			
+		}, function() {alert("yes")} );
+		alert ("succs");
+	});
+	
+	$("#delete").bind("click", function()
+	{
+		console.log ("Lose");
+		
+		 $.ajax({
+			type: 'post',
+			url: 'delete.php',
+			
+			/*
+			// Do select using user_name POST replace name with what to look for
+			data: {
+				user_name:name,
+			},
+			*/
+			success: function (response) 
+			{
+				// Output into Modal
+				$( '#modal-output' ).html(response);
+			}
+		});
+	});
+	
+
+		
+
+	
+	$("#loadTable").bind("click", function()
+	{
+		console.log ("Winrar");
+		
+		 $.ajax({
+			type: 'post',
+			url: 'outputdata.php',
+			
+			/*
+			// Do select using user_name POST replace name with what to look for
+			data: {
+				user_name:name,
+			},
+			*/
+			success: function (response) 
+			{
+				// Output into Modal
+				$( '#modal-output' ).html(response);
+			}
+		});
+	});
+	
+});
+
+
+</script>
+
+</body>
+</html>

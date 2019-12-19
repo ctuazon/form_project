@@ -1,0 +1,111 @@
+		h1, p
+		{
+			margin: 20px;
+		}
+		
+		body
+		{
+			font-family: 'Roboto', sans-serif;
+			margin: 0;
+		}
+		h2
+		{
+			background-color: #af78ff;
+			padding: 10px;
+			width:60%;
+			border-radius: 25px 0px 0px 0px;
+		}
+		section
+		{
+			background-color: #fff9b2;
+			padding-bottom:30px;
+			margin-left: 220px;
+			margin-right: 220px;
+			
+			border-radius: 25px;
+			
+		}
+		
+		#content
+		{
+			display:grid;
+			grid-template-columns: 45% 55%;
+		}
+	
+		#intro
+		{
+			background-color: #f0f0f0;
+			padding: 20px;
+			
+		}
+		label
+		{
+		
+				
+			margin-left:20px;
+		
+			
+		}
+		#left_side, #right_side
+		{
+			
+			padding:10px;
+			
+			
+			
+		}
+		#submit_button
+		{
+			margin-top:20px;
+			background-color: #FFFFFF;
+			padding: 20px;
+			display: flex;
+			justify-content: center;
+		}
+		#submit
+		{
+			height:60px;
+			width:30%;
+			align:center;
+		}
+		#left_side
+		{
+			text-align:right;
+		}
+		#right_side
+		{
+			display:grid;
+			grid-template-columns: 100%;
+			
+		}
+		#item
+		{
+			padding-bottom: 10px;
+		}
+		
+		#name, #email
+		{
+			width: 70%;
+		}
+
+		footer
+		{
+			display: flex;
+			justify-content: center;
+  
+			margin-top:20px;
+			margin-bottom:20px;
+		}
+		
+		#users
+		{
+			margin-bottom: 20px;
+		}
+		
+		#values
+		{
+			display:flex;
+			justify-content:space-between;
+			
+		}
+		
