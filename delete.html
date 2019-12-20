@@ -1,0 +1,50 @@
+<head>    
+<link href="textContainer.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript"     src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+</head>
+
+
+
+<body>
+<div id="menu_about">
+<a class="link" href="#about" data-link="first">
+    &nbsp;&nbsp; Why We Exist
+</a> &#8226; 
+<a class="link" href="#about" data-link="second">Who We Are</a> &#8226;
+<a class="link" href="#about" data-link="third">What We Do</a> &#8226; 
+<a class="link" href="#about" data-link="fourth">How We Think</a> &#8226; 
+<a class="link" href="#about" data-link="fifth">Where We Are Going</a>
+</div>
+<div id="pages_about" class="textContainer_about">
+<div class="textWord_about" data-link="first">
+ <p>ffffffffffffffffffffffffffff</p>
+ </div>
+<div class="textWord_about" data-link="second">
+  <p>ffffffffffffffffffffffffffff</p>
+</div>
+<div class="textWord_about" data-link="third">
+  <p>ffffffffffffffffffffffffffff</p>
+</div>
+<div class="textWord_about" data-link="fourth">
+  <p>ffffffffffffffffffffffffffff</p>
+  <p>ffffffffffffffffffffffffffff</p>
+  <p>ffffffffffffffffffffffffffff</p>
+  <p>ffffffffffffffffffffffffffff</p>
+  <p>ffffffffffffffffffffffffffff</p>
+</div>
+<div class="textWord_about" data-link="fifth">
+  <p>ffffffffffffffffffffffffffff</p>
+</div>
+</div>
+
+
+<script type="text/javascript">
+$('.textWord_about').hide();
+
+$('.link').click(function() {
+    $('.textWord_about').hide();       
+    $('.textWord_about[data-link=' + $(this).data('link') + ']').fadeIn({
+        width: '200px'
+    }, 300);
+});
+</script>
