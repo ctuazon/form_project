@@ -2,8 +2,8 @@
 
 // Database Constants for Posts
 define('DB_SERVER', 'localhost');
-define('DB_USER', 'fortedsx');
-define('DB_PASS', 'Tfz715-T*23[d3qnsfwE2PZ40VB');
+define('DB_USER', 'username');
+define('DB_PASS', '-------------------');
 define('DB_NAME', 'formdemo');
 
 
