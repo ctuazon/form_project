@@ -18,7 +18,8 @@
 		section
 		{
 			background-color: #fff9b2;
-			padding-bottom:30px;
+			padding-bottom:15px;
+			margin-bottom:30px;
 			margin-left: 220px;
 			margin-right: 220px;
 			
@@ -36,6 +37,7 @@
 		{
 			background-color: #f0f0f0;
 			padding: 20px;
+			margin-bottom: 20px;
 			
 		}
 		label

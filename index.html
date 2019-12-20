@@ -5,29 +5,61 @@
 	<meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen"/>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
+	
+	<style>
+		.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #777;
+  border-color: #777 transparent #777 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+	</style>
 </head>
 
 
 <body>
 
-<div class ="modal fade" id="servicemodal">
+<div class ="modal fade" tabindex="-1" id="servicemodal">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title">Who's awesome?</h5>
+				<h5 class="modal-title">Users</h5>
 				<button type="button" class="close" data-dismiss="modal" data-target="#servicemodal">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<div class="modal-body">
-				I am awesome
+			<div class="modal-body" id="modal-output">
+				<div style="text-align:center;">
+					<div class="lds-dual-ring"></div>
+				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal" data-target="#servicemodal">Click Me</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal" data-target="#servicemodal" >View Users</button>
 			</div>
 		</div>
 	</div>
 </div> 
+
+
+
 	
 <main>
 	<div id ="intro">
@@ -36,7 +68,7 @@
 			<p id="description">We value your opinion. If you have some time, please go ahead and fill up this form.</p>
 		</div>
 		<div>
-			<button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#servicemodal">Click Me</button>
+			<button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#servicemodal"  id="loadTable">Click Me</button>
 		</div>
 	</div>
 	<form id="survey-form">
@@ -142,13 +174,87 @@
 	<footer>
 	Copyright 2019
 	</footer>
+	<a href="www.somewhere.com" class="winter" id="1">Read More</a>
 	
 	<script src="js/jquery-3.4.1.js"></script>
 	<script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 <script>
+
 $(document).ready(function() 
 {
+/*
+	// delete user
+	$('.winter').click(function(event)
+	{
+		event.preventDefault();
+	
+		var process = confirm("Do you wish to delete this user?");
+	
+		var id = $(this).attr('id');
+	
+		//if(id == '1')
+		if (process)
+		{
+			console.log("USER DEAD");
+			
+			$.ajax({
+				type: 'post',
+				url: 'deleteuser.php',
+			
+				data: {
+					id1:id
+				}
+			
+				
+			});
+		}
+		else
+		{
+			//redirect
+		}
+	});
+*/
+	/*
+	$(document).on("click", '.winter', function(event){
+        event.preventDefault();
+		var txt = $(event.target).text();
+		
+		console.log(txt);
+  
+        console.log("WIN");
+		console.log($("span").text());
+		
+		
+    });
+	*/
+    
+		
+	
+	/*
+	// Make modal window movable
+	$(".modal").modal("show");
+
+	$(".modal-header").on("mousedown", function(mousedownEvt) {
+		var $draggable = $(this);
+		var x = mousedownEvt.pageX - $draggable.offset().left,
+			y = mousedownEvt.pageY - $draggable.offset().top;
+		$("body").on("mousemove.draggable", function(mousemoveEvt) {
+			$draggable.closest(".modal-dialog").offset({
+				"left": mousemoveEvt.pageX - x,
+				"top": mousemoveEvt.pageY - y
+			});
+		});
+		$("body").one("mouseup", function() {
+			$("body").off("mousemove.draggable");
+		});
+		$draggable.closest(".modal").one("bs.modal.hide", function() {
+			$("body").off("mousemove.draggable");
+		});
+	});
+	*/
+	
+	
 	$('#survey-form').on('submit', function(e) 
 	{
 		var name = $("#name").val();
@@ -178,11 +284,42 @@ $(document).ready(function()
 			oftencards1: oftencards,
 			comments1: comments
 			
-		}, function() {alert("yes")} );
-		alert ("succs");
+		}, function() {alert("Thank You")} );
+		
 	});
 	
+	$("#delete").bind("click", function()
+	{
+		console.log ("Lose");
+		
+		
+	});
 	
+
+		
+
+	
+	$("#loadTable").bind("click", function()
+	{
+		console.log ("Winrar");
+		
+		 $.ajax({
+			type: 'post',
+			url: 'outputdata.php',
+			
+			/*
+			// Do select using user_name POST replace name with what to look for
+			data: {
+				user_name:name,
+			},
+			*/
+			success: function (response) 
+			{
+				// Output into Modal
+				$( '#modal-output' ).html(response);
+			}
+		});
+	});
 	
 });
 
